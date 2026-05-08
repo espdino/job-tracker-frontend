@@ -18,7 +18,7 @@ export default function Register() {
 
   const handleRegister = async () => {
     try {
-      await axios.post("https://job-tracker-backend-6bt5.onrender.com/auth/register", {
+      await axios.post("https://job-tracker-backend-nxre.onrender.com/auth/register", {
         email,
         password,
       });
