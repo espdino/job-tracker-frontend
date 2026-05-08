@@ -109,7 +109,7 @@ export default function Dashboard() {
       }
 
       const res = await axios.get(
-        `http://localhost:3000/jobs?${params.toString()}`,
+        `https://job-tracker-backend-6bt5.onrender.com/jobs?${params.toString()}`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -138,7 +138,7 @@ export default function Dashboard() {
   const handleAddJob = async () => {
     try {
       await axios.post(
-        "http://localhost:3000/jobs",
+        "https://job-tracker-backend-6bt5.onrender.com/jobs",
         {
           company,
           position,
@@ -168,7 +168,7 @@ export default function Dashboard() {
     if (!confirm("Are you sure?")) return;
 
     try {
-      await axios.delete(`http://localhost:3000/jobs/${id}`, {
+      await axios.delete(`https://job-tracker-backend-6bt5.onrender.com/jobs/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -193,7 +193,7 @@ export default function Dashboard() {
 
   const handleUpdate = async (id) => {
     try {
-      await axios.put(`http://localhost:3000/jobs/${id}`, editData, {
+      await axios.put(`https://job-tracker-backend-6bt5.onrender.com/jobs/${id}`, editData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -220,7 +220,7 @@ export default function Dashboard() {
         (job.notes || "") + `[${timestamp}]\n${newNotes[job.id]}\n\n`;
 
       await axios.put(
-        `http://localhost:3000/jobs/${job.id}`,
+        `https://job-tracker-backend-6bt5.onrender.com/jobs/${job.id}`,
         {
           notes: updatedNotes,
         },
