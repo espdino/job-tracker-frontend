@@ -218,7 +218,7 @@ export default function Dashboard() {
       const timestamp = new Date().toLocaleString();
 
       const updatedNotes =
-        (job.notes || "") + `[${timestamp}]\n${newNotes[job.id]}\n\n`;
+        (job.notes || "") + `\n[${timestamp}]\n${newNotes[job.id]}\n`;
 
       await axios.put(
         `https://job-tracker-backend-nxre.onrender.com/jobs/${job.id}`,
