@@ -105,9 +105,7 @@ export default function Dashboard() {
         params.append("status", statusFilter);
       }
 
-      if (sort === "newest") {
-        params.append("sort", "date");
-      }
+      params.append("sort", sort);
 
       const res = await axios.get(
         `https://job-tracker-backend-nxre.onrender.com/jobs?${params.toString()}`,
@@ -119,14 +117,6 @@ export default function Dashboard() {
       );
 
       let data = res.data;
-
-      if (sort === "company") {
-        data.sort((a, b) => a.company.localeCompare(b.company));
-      }
-
-      if (sort === "oldest") {
-        data.reverse();
-      }
 
       setJobs(data);
     } catch (err) {
