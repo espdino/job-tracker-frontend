@@ -1,16 +1,91 @@
-# React + Vite
+# Job Tracker Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern full-stack job application tracker built with React, Vite, Tailwind CSS, and Recharts.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- User authentication (JWT)
+- Protected routes
+- Add / edit / delete jobs
+- Status tracking
+- Search & filtering
+- Sorting & infinite scroll
+- Notes & application history
+- Dashboard analytics & charts
+- Responsive UI with Tailwind CSS
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- Vite
+- Tailwind CSS
+- Axios
+- React Router
+- Recharts
+
+---
+
+## Installation
+
+Run:
+
+npm install
+
+---
+
+## Run Locally
+
+Start the development server:
+
+npm run dev
+
+Frontend runs on:
+
+http://localhost:5173
+
+---
+
+## Environment Variables
+
+Create a `.env` file in the root folder:
+
+VITE_API_URL=http://localhost:3000
+
+---
+
+## Production
+
+Update API requests to use your deployed backend URL:
+
+VITE_API_URL=https://your-backend.onrender.com
+
+---
+
+## Build
+
+npm run build
+
+---
+
+## Deployment
+
+Frontend deployed with:
+
+- Vercel
+
+---
+
+## Screenshots
+
+<img src="screenshots/Register.png" alt="Screenshot" width="300"/> <img src="screenshots/Login.png" alt="Screenshot" width="294"/>
+<img src="screenshots/Dashboard.png" alt="Dashboard" width="600"/>
+
+---
+
+## Live Demo
+
+https://job-tracker-frontend-omega-one.vercel.app/
