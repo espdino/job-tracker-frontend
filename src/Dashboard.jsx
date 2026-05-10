@@ -28,6 +28,7 @@ export default function Dashboard() {
     position: "",
     status: "Applied",
     notes: "",
+    applied_date: "",
   });
 
   const [newNotes, setNewNotes] = useState({});
@@ -168,11 +169,14 @@ export default function Dashboard() {
     if (!confirm("Are you sure?")) return;
 
     try {
-      await axios.delete(`https://job-tracker-backend-nxre.onrender.com/jobs/${id}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
+      await axios.delete(
+        `https://job-tracker-backend-nxre.onrender.com/jobs/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         },
-      });
+      );
 
       fetchJobs();
     } catch (err) {
@@ -188,16 +192,23 @@ export default function Dashboard() {
       position: job.position,
       status: job.status,
       notes: job.notes || "",
+      applied_date: job.applied_date
+        ? new Date(job.applied_date).toISOString().slice(0, 16)
+        : "",
     });
   };
 
   const handleUpdate = async (id) => {
     try {
-      await axios.put(`https://job-tracker-backend-nxre.onrender.com/jobs/${id}`, editData, {
-        headers: {
-          Authorization: `Bearer ${token}`,
+      await axios.put(
+        `https://job-tracker-backend-nxre.onrender.com/jobs/${id}`,
+        editData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         },
-      });
+      );
 
       setEditingId(null);
       fetchJobs();
@@ -470,6 +481,18 @@ export default function Dashboard() {
                   <option>Offer</option>
                   <option>Rejected</option>
                 </select>
+
+                <input
+                  type="datetime-local"
+                  className="border p-2 rounded w-full mb-3"
+                  value={editData.applied_date}
+                  onChange={(e) =>
+                    setEditData({
+                      ...editData,
+                      applied_date: e.target.value,
+                    })
+                  }
+                />
 
                 <textarea
                   className="border p-2 rounded w-full mb-3"
